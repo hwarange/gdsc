@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gdsc/commmon/const/colors.dart';
 
 class CustomTextFormField extends StatelessWidget {
+  final String ? labelText;
   final String ? hintText;
   final String ? errorText;
   final bool obscureText;
@@ -12,6 +13,7 @@ class CustomTextFormField extends StatelessWidget {
 
 
   const CustomTextFormField({
+    this.labelText,
     this.onChanged,
     this.obscureText = false,
     this.autofocus = false,
@@ -42,6 +44,7 @@ class CustomTextFormField extends StatelessWidget {
       onChanged: onChanged,
       decoration: InputDecoration(
         contentPadding: EdgeInsets.all(20),
+          labelText: labelText,
           hintText: hintText ,
           errorText: errorText,
           hintStyle: TextStyle(

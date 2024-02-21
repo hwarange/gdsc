@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:gdsc/commmon/component/layout/default_layout.dart';
 import 'package:gdsc/commmon/const/colors.dart';
 import 'package:gdsc/profile/profile_list.dart';
-import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -38,8 +37,8 @@ class _ProfileViewState extends State<ProfileView> {
             }
             var userData = snapshot.data!.data();
             String userName = (userData as Map<String, dynamic>)['name'] ?? '이름값 없음';
-            String userNickName = (userData as Map<String, dynamic>)['nickname'] ?? '이름값 없음';
-            int userAge = (userData as Map<String, dynamic>)['age'] ?? '이름값 없음';
+            String userNickName = (userData)['nickname'] ?? '이름값 없음';
+            int userAge = (userData)['age'] ?? '이름값 없음';
             return Center(
               child: Column(
                 children: [
@@ -145,14 +144,17 @@ class _ProfileViewState extends State<ProfileView> {
                       )
                   ),
                   SizedBox(height: 25,),
-                  IconButton(
-                    onPressed: (){
-                      AuthController.instance.logout();
-                    },
-                    icon: Icon(Icons.login_outlined),
+                  ElevatedButton(
+                      onPressed:(){
+                    AuthController.instance.logout();
+                  },
+                      child: Text('로그아웃',style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        color: BODY_TEXT_COLOR
+                      ),
+                      )
                   ),
-
-
 
 
                 ],

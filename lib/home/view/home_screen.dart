@@ -3,7 +3,7 @@ import 'package:gdsc/commmon/component/bottombar.dart';
 import 'package:gdsc/commmon/component/layout/default_layout.dart';
 import 'package:gdsc/home/view/home_view.dart';
 import 'package:gdsc/profile/profile_view.dart';
-import 'package:gdsc/user/first.dart';
+import '../../trophy/my_trophy.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({

@@ -3,9 +3,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gdsc/home/view/home_screen.dart';
-import 'package:gdsc/user/view/login_view.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+
+import '../login/login_view.dart';
 
 class AuthController extends GetxController {
   static AuthController instance = Get.find();

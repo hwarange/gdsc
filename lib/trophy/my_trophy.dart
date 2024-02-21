@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gdsc/commmon/component/layout/default_layout.dart';
 import 'package:gdsc/commmon/const/colors.dart';
-import 'package:gdsc/user/trophy_card.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:gdsc/trophy/trophy_card.dart';
 
 import '../controller/auth_controller.dart';
 

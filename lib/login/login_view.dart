@@ -3,12 +3,11 @@ import 'package:gdsc/commmon/component/custom_text_form_field.dart';
 import 'package:gdsc/commmon/component/layout/default_layout.dart';
 import 'package:gdsc/commmon/const/colors.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:gdsc/user/view/google_sign_up.dart';
-import 'package:gdsc/user/view/sign_up.dart';
 import 'package:get/get.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import '../../controller/auth_controller.dart';
 import '../../home/view/home_screen.dart';
+import '../sign_up/google_sign_up.dart';
+import '../sign_up/sign_up.dart';
 
 class LoginView extends StatelessWidget {
    LoginView({Key ? key}) : super(key: key);
@@ -50,57 +49,52 @@ class LoginView extends StatelessWidget {
                   obscureText: true,
                 ),
                 const SizedBox(height: 16.0,),
-                GestureDetector(
-                  onTap: (){
-                    AuthController.instance.login(
-                        emailController.text.trim(), passwordController.text.trim());
-
-                  },
-                  child: Container(
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 25.0),
-                      child: Container(
-                        padding: EdgeInsets.all(20),
-                        decoration: BoxDecoration(
-                            color: BODY_TEXT_COLOR,
-                            borderRadius: BorderRadius.circular(12)),
-                        child: Center(
-                          child: Text(
-                            '로그인',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
+                Container(
+                  height: 70,
+                  width: double.infinity,
+                  padding: const EdgeInsets.only(top: 16.0), // 8단위 배수가 보기 좋음
+                  child: ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor:
+                        MaterialStateProperty.all(BODY_TEXT_COLOR),
                       ),
-                    ),
-                  ),
+                      onPressed: (){
+                        AuthController.instance.login(
+                            emailController.text.trim(), passwordController.text.trim());
+                      },
+                      child: const Text(
+                        "로그인",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      )),
                 ),
                 const SizedBox(height: 16.0,),
                 GestureDetector(
-                  onTap: (){
+                  onTap: () {
                     Navigator.push(
                         context, MaterialPageRoute(
                         builder: (context) => Sign_Up()
                     )
                     );
                   },
-                  child: Container(
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 25.0),
-                      child: Container(
-                        padding: EdgeInsets.all(20),
-                        decoration: BoxDecoration(
-                            color: BG_COLOR,
-                            borderRadius: BorderRadius.circular(12)),
-                        child: Center(
-                          child: Text(
-                            '회원가입',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold),
+                  child: SizedBox(
+                    width: double.infinity,
+                    height: 60,
+                    child: Card(
+                      color: BG_COLOR,
+                      //margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      elevation: 2,
+                      child: const Center(
+                        child: Text(
+                          '회원 가입',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
@@ -124,27 +118,28 @@ class LoginView extends StatelessWidget {
                       Get.offAll(() => GoogleSignUp());
                     }
                   },
-                  child: Container(
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 25.0),
-                      child: Container(
-                        padding: EdgeInsets.all(20),
-                        decoration: BoxDecoration(
-                            color: BODY_TEXT_COLOR,
-                            borderRadius: BorderRadius.circular(12)),
-                        child: Center(
-                          child: Text(
-                            'Google Sign in',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold),
-                          ),
+                  child: Card(
+                    margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    elevation: 2,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset('asset/map/google.png'),
+                        const SizedBox(
+                          width: 10,
                         ),
-                      ),
+                        const Text(
+                          'Sign In With Google',
+                          style: TextStyle(color: Colors.grey, fontSize: 17),
+                        ),
+                      ],
                     ),
                   ),
                 ),
+
 
               ],
             ),

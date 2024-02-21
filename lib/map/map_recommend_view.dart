@@ -6,7 +6,6 @@ import 'package:gdsc/commmon/component/layout/default_layout.dart';
 import 'package:gdsc/commmon/const/colors.dart';
 import 'package:gdsc/home/component/home_card.dart';
 import 'package:gdsc/map/map_view.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 
 class MapRecommendView extends StatefulWidget {

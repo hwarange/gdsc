@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:gdsc/commmon/component/layout/default_layout.dart';
 import 'package:gdsc/commmon/const/colors.dart';
-import 'package:gdsc/map/box_ex.dart';
+import 'package:gdsc/map/running_box.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapView extends StatefulWidget {
@@ -100,7 +100,7 @@ class _MapViewState extends State<MapView> {
               Positioned(
                 bottom: 30,
                   left: 30,
-                  child: RunningBox1(detinationName: widget.trailName)),
+                  child: RunningBox(detinationName: widget.trailName)),
 
             ]
         )
